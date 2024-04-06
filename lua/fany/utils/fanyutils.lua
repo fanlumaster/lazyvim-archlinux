@@ -19,6 +19,12 @@ function myutils.copy_current_filename()
   vim.fn.setreg("+", clipboard_content)
 end
 
+-- 获取当前文件的绝对路径
+function myutils.copy_absolute_path()
+  local current_file_abs_path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", current_file_abs_path)
+end
+
 function myutils.set_os_info()
   if vim.fn.exists('g:os') == 0 then
       local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 or vim.fn.has("win16") == 1
