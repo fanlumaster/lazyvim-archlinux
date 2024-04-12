@@ -12,3 +12,8 @@ command! -nargs=0 CpFileName lua require("fany.utils.fanyutils").copy_current_fi
 vim.cmd([[
 command! -nargs=0 CpAbsolutePath lua require("fany.utils.fanyutils").copy_absolute_path()
 ]])
+
+-- register F11 to toggle fullscreen in normal mode
+if vim.g.neovide == true then
+    vim.api.nvim_set_keymap('n', '<F11>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
+end
