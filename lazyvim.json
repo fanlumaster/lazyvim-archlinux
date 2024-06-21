@@ -1,9 +1,11 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.lang.clangd"
+    "lazyvim.plugins.extras.coding.luasnip",
+    "lazyvim.plugins.extras.lang.clangd",
+    "lazyvim.plugins.extras.ui.treesitter-context"
   ],
   "news": {
-    "NEWS.md": "3314"
+    "NEWS.md": "6077"
   },
-  "version": 3
+  "version": 6
 }
