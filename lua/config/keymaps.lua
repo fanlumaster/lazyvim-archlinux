@@ -58,10 +58,15 @@ end, { desc = "Go to next any begining of words considering camel case." })
 map({ "n", "v" }, "<leader><leader>h", function()
   hop.hint_camel_case({ direction = directions.BEFORE_CURSOR })
 end, { desc = "Go to next any begining of words considering camel case." })
+
+-- suppress useless warning here
+---@diagnostic disable: missing-fields
 -- leader leader a
 map({ "n", "v" }, "<leader><leader>a", function()
   hop.hint_anywhere({})
 end, { desc = "Go to any char" })
+---@diagnostic enable: missing-fields
+
 -- leader leader j
 map({ "n", "v" }, "<leader><leader>j", function()
   hop.hint_lines({ direction = directions.AFTER_CURSOR })
