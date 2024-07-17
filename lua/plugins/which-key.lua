@@ -1,20 +1,21 @@
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
+  opts_extend = { "spec" },
   opts = {
-    plugins = { spelling = true },
+    defaults = {},
+    spec = {
+      {
+        mode = { "n", "v" },
+        {
+          "<leader>w",
+          desc = "Save current file",
+        },
+      },
+    },
   },
   config = function(_, opts)
     local wk = require("which-key")
     wk.setup(opts)
-    wk.add({
-      {
-        mode = { "n", "v" },
-        { "<leader>l", group = "+lsp" },
-        { "<leader>p", group = "python" },
-        { "<leader>t", group = "+toggle-term" },
-        { "<leader><leader>t", group = "+hop/toggle-color" },
-      },
-    })
   end,
 }
