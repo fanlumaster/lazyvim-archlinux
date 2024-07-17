@@ -7,6 +7,7 @@ return {
     spec = {
       {
         mode = { "n", "v" },
+        { "<leader>c", desc = "Close current Buffer" },
         {
           "<leader>w",
           desc = "Save current file",
