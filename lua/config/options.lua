@@ -6,6 +6,7 @@ vim.g.autoformat = false
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_floating_shadow = false
 vim.g.neovide_input_ime = true
+vim.g.neovide_cursor_vfx_particle_density = 100.0
 
 local opt = vim.opt
 
