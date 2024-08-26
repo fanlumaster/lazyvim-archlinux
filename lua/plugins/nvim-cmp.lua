@@ -6,7 +6,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    -- "saadparwaiz1/cmp_luasnip",
+    "saadparwaiz1/cmp_luasnip",
   },
   -- Not all LSP servers add brackets when completing a function.
   -- To better deal with this, LazyVim adds a custom option to cmp,
@@ -44,13 +44,13 @@ return {
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        -- { name = "luasnip" },
+        { name = "luasnip" },
         { name = "path" },
       }, {
         { name = "buffer" },
       }),
       formatting = {
-        format = function(entry, item)
+        format = function(_, item)
           local icons = LazyVim.config.icons.kinds
           if icons[item.kind] then
             item.kind = icons[item.kind] .. item.kind
