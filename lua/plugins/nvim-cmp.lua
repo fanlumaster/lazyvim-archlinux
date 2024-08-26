@@ -8,6 +8,29 @@ return {
     "hrsh7th/cmp-path",
     "saadparwaiz1/cmp_luasnip",
   },
+  -- https://www.lazyvim.org/plugins/coding#nvim-cmp-1
+  -- 如果在跳的过程中进行补全，那么，可能会不能继续跳转，这是正确的，否则这里的递归处理起来不太方便
+  keys = {
+    {
+      "<Tab>",
+      function()
+        return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>"
+      end,
+      expr = true,
+      silent = true,
+      mode = { "i", "s" },
+    },
+    {
+      "<S-Tab>",
+      function()
+        return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
+      end,
+      expr = true,
+      silent = true,
+      mode = { "i", "s" },
+    },
+  },
+
   -- Not all LSP servers add brackets when completing a function.
   -- To better deal with this, LazyVim adds a custom option to cmp,
   -- that you can configure. For example:
@@ -20,8 +43,10 @@ return {
   opts = function()
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
     local cmp = require("cmp")
+    local luasnip = require("luasnip")
     local defaults = require("cmp.config.default")()
     local auto_select = true
+
     return {
       auto_brackets = {}, -- configure any filetype to auto add brackets
       completion = {
@@ -36,11 +61,27 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<CR>"] = LazyVim.cmp.confirm({ select = auto_select }),
         ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
-        ["<S-CR>"] = LazyVim.cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<S-CR>"] = LazyVim.cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         ["<C-CR>"] = function(fallback)
           cmp.abort()
           fallback()
         end,
+        -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if luasnip.locally_jumpable(1) then
+            luasnip.jump(1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if luasnip.locally_jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
