@@ -11,6 +11,8 @@ local Util = require("lazyvim.util")
 -- map("n", "<leader>q", "<cmd>q<cr>", { desc = "Faster \[Q\]uit" })
 -- map("n", "<leader>w", "<cmd>w<cr><esc>", { desc = "Faster \[W\]rite" })
 unmap("n", "<leader>w", { desc = "Windows" }) -- This is optional, does not has the real effect, the effective code is located in which-key.lua file
+unmap("n", "<leader>wd", { desc = "Windows" })
+unmap("n", "<leader>wm", { desc = "Windows" })
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save current change", remap = true })
 
 unmap("n", "<leader>l", { desc = "Lazy" })
