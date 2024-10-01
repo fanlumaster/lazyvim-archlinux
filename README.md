@@ -11,7 +11,7 @@ Effects are as follows,
 
 ![](https://i.postimg.cc/SmSpMRMX/2024-10-01-185236-hyprshot.png)
 
-![](https://i.postimg.cc/p2McF17s/2024-10-01-185547-hyprshot.png)
+![](https://i.postimg.cc/LsvVdvmP/2024-10-01-185547-hyprshot.png)
 
 More notes about this config repo, see my [blog](https://fanlumaster.github.io/2023/11/25/Lazyvim-configure-from-scratch/).
 
