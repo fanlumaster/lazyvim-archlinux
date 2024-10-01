@@ -7,13 +7,11 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to learn mo
 
 Effects are as follows,
 
-![](https://i.imgur.com/fS2lFic.png)
+![](https://i.postimg.cc/5x4D6RD8/2024-10-01-184754-hyprshot.png)
 
-![](https://i.imgur.com/NFiBfv5.png)
+![](https://i.postimg.cc/SmSpMRMX/2024-10-01-185236-hyprshot.png)
 
-![](https://i.imgur.com/3hx9KJD.png)
-
-![](https://i.imgur.com/ebT9DaG.png)
+![](https://i.postimg.cc/p2McF17s/2024-10-01-185547-hyprshot.png)
 
 More notes about this config repo, see my [blog](https://fanlumaster.github.io/2023/11/25/Lazyvim-configure-from-scratch/).
 
