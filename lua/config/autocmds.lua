@@ -26,10 +26,10 @@ vim.api.nvim_create_autocmd("FileType", {
 -- change c/cpp file tab width to 4 spaces
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("associate_filetype"),
-  pattern = { "c", "cpp", "rust" },
+  pattern = { "c", "cpp", "rust", "python" },
   callback = function()
     vim.opt.shiftwidth = 4
-    vim.opt.formatoptions:remove({ "o" })
+    vim.opt.formatoptions:remove({ "o" }) -- 防止使用 o 切换到下一行的时候自动加上注释符号(在上一行是注释的情况下)
   end,
 })
 
