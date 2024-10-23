@@ -93,6 +93,8 @@ map("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc 
 -- programming language about
 -- run single python codes
 map("n", "<leader>py", '<cmd>TermExec cmd="python %"<cr>', { desc = "Run python codes" })
+-- run single cmake codes 
+map("n", "<leader>rc", '<cmd>TermExec cmd="cmake -P %"<cr>', { desc = "Run cmake codes" })
 -- execute "cargo run"
 map("n", "<leader>ru", '<cmd>TermExec cmd="cargo run"<cr>', { desc = "Run cargo codes" })
 
