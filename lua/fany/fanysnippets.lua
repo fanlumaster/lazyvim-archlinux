@@ -18,7 +18,7 @@ ls.add_snippets("cpp", {
 })
 
 ls.add_snippets("c", {
-  -- add stm for cpp
+  -- add stm for c
   s("stm", {
     -- Simple static text.
     t({"#include<stdio.h>"}),
@@ -35,5 +35,11 @@ ls.add_snippets("c", {
     i(1),
     t({"", "    return 0;"}),
     t({"", "}"}),
+  }),
+  s("/*", {
+    -- Simple static text.
+    t({"/* "}),
+    i(1),
+    t({" */"})
   }),
 })
