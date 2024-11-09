@@ -16,3 +16,24 @@ ls.add_snippets("cpp", {
     t({"", "}"}),
   }),
 })
+
+ls.add_snippets("c", {
+  -- add stm for cpp
+  s("stm", {
+    -- Simple static text.
+    t({"#include<stdio.h>"}),
+    t({"", "", "int main() {"}),
+    t({"", "    "}),
+    i(1),
+    t({"", "    return 0;"}),
+    t({"", "}"}),
+  }),
+  s("fanymain", {
+    -- Simple static text.
+    t({"", "", "int main() {"}),
+    t({"", "    "}),
+    i(1),
+    t({"", "    return 0;"}),
+    t({"", "}"}),
+  }),
+})
