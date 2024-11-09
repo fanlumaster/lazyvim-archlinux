@@ -7,9 +7,9 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to learn mo
 
 Effects are as follows,
 
-![](https://i.postimg.cc/5x4D6RD8/2024-10-01-184754-hyprshot.png)
+![](https://i.postimg.cc/MGL9Ld6G/2024-10-01-184754-hyprshot.png)
 
-![](https://i.postimg.cc/SmSpMRMX/2024-10-01-185236-hyprshot.png)
+![](https://i.postimg.cc/XYzhMVx3/2024-10-01-185236-hyprshot.png)
 
 ![](https://i.postimg.cc/LsvVdvmP/2024-10-01-185547-hyprshot.png)
 
