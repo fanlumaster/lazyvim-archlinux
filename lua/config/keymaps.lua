@@ -88,12 +88,13 @@ end, { desc = "Close current buffer" })
 -- toggleterm
 map("n", "<leader>th", "<cmd>ToggleTerm size=15 direction=horizontal<cr>", { desc = "ToggleTerm horizontal split" })
 map("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { desc = "ToggleTerm float" })
+map("n", "<leader>tt", "<cmd>ToggleTerm direction=tab<cr>", { desc = "ToggleTerm float" })
 map("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "ToggleTerm vertical split" })
 
 -- programming language about
 -- run single python codes
 map("n", "<leader>py", '<cmd>TermExec cmd="python %"<cr>', { desc = "Run python codes" })
--- run single cmake codes 
+-- run single cmake codes
 map("n", "<leader>rc", '<cmd>TermExec cmd="cmake -P %"<cr>', { desc = "Run cmake codes" })
 -- execute "cargo run"
 map("n", "<leader>ru", '<cmd>TermExec cmd="cargo run"<cr>', { desc = "Run cargo codes" })
@@ -179,7 +180,23 @@ end
 map("x", "p", "P")
 
 if vim.g.neovide then
-    vim.keymap.set({ "n", "v" }, "<c-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
-    vim.keymap.set({ "n", "v" }, "<c-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
-    vim.keymap.set({ "n", "v" }, "<c-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
+  vim.keymap.set({ "n", "v" }, "<c-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
+  vim.keymap.set({ "n", "v" }, "<c-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
+  vim.keymap.set({ "n", "v" }, "<c-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
 end
+
+function ClearTerm(reset)
+  -- notice here: 0 is invalid, so we need to use 1
+  vim.opt_local.scrollback = 1
+  vim.api.nvim_command("startinsert")
+  if reset == 1 then
+    vim.api.nvim_feedkeys("reset", "t", false)
+  else
+    vim.api.nvim_feedkeys("clear", "t", false)
+  end
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<cr>", true, false, true), "t", true)
+  vim.opt_local.scrollback = 10000
+end
+map("t", "<C-S-l>", function()
+  ClearTerm()
+end, { desc = "Clear terminal buffer" })
