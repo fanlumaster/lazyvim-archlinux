@@ -51,3 +51,11 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     end
   end,
 })
+
+-- make telescope preview show line numbers
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopePreviewerLoaded",
+  callback = function()
+    vim.opt_local.number = true
+  end,
+})

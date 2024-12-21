@@ -1,4 +1,5 @@
 return {
+  -- { "nvim-telescope/telescope.nvim", enabled = true },
   "nvim-telescope/telescope.nvim",
   keys = {
     -- disable the default keymap to search files
