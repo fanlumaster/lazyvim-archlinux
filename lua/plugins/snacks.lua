@@ -62,5 +62,6 @@ return {
         header = header_banner(),
       },
     },
+    scroll = { enabled = false },
   },
 }
