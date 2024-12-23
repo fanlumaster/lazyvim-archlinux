@@ -1,6 +1,6 @@
 # 💤 FanyLazyVim
 
-My lazyvim config branch for arch linux specifically.
+My lazyvim config branch for arch linux specifically, and it also works on MacOS.
 
 Based on the starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 Refer to the [documentation](https://lazyvim.github.io/installation) to learn more about it.
