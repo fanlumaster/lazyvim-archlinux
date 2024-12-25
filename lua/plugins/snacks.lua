@@ -92,14 +92,13 @@ return {
         only_current = true, -- only show scope in the current window
         -- hl = "SnacksIndentScope", ---@type string|string[] hl group for scopes
         hl = {
-          "SnacksIndent1",
-          "SnacksIndent2",
-          "SnacksIndent3",
-          "SnacksIndent4",
-          "SnacksIndent5",
-          "SnacksIndent6",
-          "SnacksIndent7",
-          "SnacksIndent8",
+          "RainbowRed",
+          "RainbowYellow",
+          "RainbowBlue",
+          "RainbowOrange",
+          "RainbowGreen",
+          "RainbowViolet",
+          "RainbowCyan",
         },
       },
     },
