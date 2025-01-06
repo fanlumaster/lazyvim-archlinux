@@ -2,6 +2,10 @@ local map = vim.keymap.set
 -- TODO: 不知道为什么 <leader>w 和 <leader>c 无法在 which-key 中显示
 -- 添加 <leader>w 来保存当前buffer 的映射
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
+
+local function runJsInVSCode()
+  require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "clear u000D" } })
+end
 if not vim.g.vscode then
   -- quit current window
   map("n", "<leader><leader>q", "<cmd>q<cr>", { desc = "Save" })
@@ -41,8 +45,33 @@ command! -nargs=0 CpAbsolutePath lua require("fany.utils.fanyutils").copy_absolu
     vim.api.nvim_set_keymap("n", "<F11>", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
   end
 else
-  map("n", "<leader><leader>q", "<Cmd>lua require('vscode').call('workbench.action.closeWindow')<CR>", { desc = "Quit VSCode" })
-  map("n", "<leader>c", "<Cmd>lua require('vscode').call('workbench.action.closeEditorInAllGroups')<CR>", { desc = "Close Current Tab" })
-  map("n", "<leader>e", "<Cmd>lua require('vscode').call('workbench.action.toggleSidebarVisibility')<CR>", { desc = "toggleSidebarVisibility" })
-  map("n", "<leader>a", "<Cmd>lua require('vscode').call('workbench.action.toggleActivityBarVisibility')<CR>", { desc = "toggleActivityBarVisibility" })
+  map(
+    "n",
+    "<leader><leader>q",
+    "<Cmd>lua require('vscode').call('workbench.action.closeWindow')<CR>",
+    { desc = "Quit VSCode" }
+  )
+  map(
+    "n",
+    "<leader>c",
+    "<Cmd>lua require('vscode').call('workbench.action.closeEditorInAllGroups')<CR>",
+    { desc = "Close Current Tab" }
+  )
+  map(
+    "n",
+    "<leader>e",
+    "<Cmd>lua require('vscode').call('workbench.action.toggleSidebarVisibility')<CR>",
+    { desc = "toggleSidebarVisibility" }
+  )
+  map(
+    "n",
+    "<leader>a",
+    "<Cmd>lua require('vscode').call('workbench.action.toggleActivityBarVisibility')<CR>",
+    { desc = "toggleActivityBarVisibility" }
+  )
+  map("n", "<leader>js", function()
+    require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "clear\n" } })
+    -- require("vscode").call("workbench.action.terminal.focus")
+    require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "node '${file}'\n" } })
+  end, { desc = "Run JS codes with node" })
 end

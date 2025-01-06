@@ -104,7 +104,7 @@ return {
       chunk = {
         -- when enabled, scopes will be rendered as chunks, except for the
         -- top-level scope which will be rendered as a scope.
-        enabled = true,
+        enabled = false,
         -- only show chunk scopes in the current window
         only_current = true,
         priority = 200,
