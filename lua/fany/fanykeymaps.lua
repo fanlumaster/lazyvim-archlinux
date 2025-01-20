@@ -72,6 +72,9 @@ else
   map("n", "<leader>js", function()
     require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "clear\n" } })
     -- require("vscode").call("workbench.action.terminal.focus")
-    require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "node '${file}'\n" } })
-  end, { desc = "Run JS codes with node" })
+    require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "bun '${file}'\n" } })
+  end, { desc = "Run JS or TS codes with node" })
+  map("n", "<leader>E", function()
+    require("vscode").call("workbench.files.action.showActiveFileInExplorer")
+  end, { desc = "Reveal Active File in Explorer" })
 end
