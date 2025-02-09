@@ -17,6 +17,19 @@ map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save current change", remap = true
 
 unmap("n", "<leader>l", { desc = "Lazy" })
 
+--
+-- VSCode releated
+--
+if vim.g.vscode then
+  unmap("n", "<leader>qq")
+  map(
+    "n",
+    "<leader>qq",
+    "<Cmd>lua require('vscode').call('workbench.action.closeWindow')<CR>",
+    { desc = "Quit VSCode" }
+  )
+end
+
 -- toggle color between 雷姆蓝 and 拉姆粉
 local color_switch = 0
 local function toggle_color()

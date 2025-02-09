@@ -1,4 +1,6 @@
 local map = vim.keymap.set
+local unmap = vim.keymap.del
+
 -- TODO: 不知道为什么 <leader>w 和 <leader>c 无法在 which-key 中显示
 -- 添加 <leader>w 来保存当前buffer 的映射
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
@@ -48,6 +50,12 @@ else
   map(
     "n",
     "<leader><leader>q",
+    "<Cmd>lua require('vscode').call('workbench.action.closeWindow')<CR>",
+    { desc = "Quit VSCode" }
+  )
+  map(
+    "n",
+    "<leader>qq",
     "<Cmd>lua require('vscode').call('workbench.action.closeWindow')<CR>",
     { desc = "Quit VSCode" }
   )
