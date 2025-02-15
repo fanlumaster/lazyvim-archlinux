@@ -71,6 +71,14 @@ else
     "<Cmd>lua require('vscode').call('workbench.action.toggleSidebarVisibility')<CR>",
     { desc = "toggleSidebarVisibility" }
   )
+  -- reveal current active file in vscode explorer view
+  -- workbench.files.action.showActiveFileInExplorer
+  map(
+    "n",
+    "<leader>E",
+    "<Cmd>lua require('vscode').call('workbench.files.action.showActiveFileInExplorer')<CR>",
+    { desc = "reveal active file" }
+  )
   map(
     "n",
     "<leader>a",
@@ -85,4 +93,9 @@ else
   map("n", "<leader>E", function()
     require("vscode").call("workbench.files.action.showActiveFileInExplorer")
   end, { desc = "Reveal Active File in Explorer" })
+  -- run python scripts
+  map("n", "<leader>py", function()
+    require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "clear\n" } })
+    require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "python '${file}'\n" } })
+  end, { desc = "Run python scripts" })
 end
