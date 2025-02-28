@@ -98,4 +98,13 @@ else
     require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "clear\n" } })
     require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "python '${file}'\n" } })
   end, { desc = "Run python scripts" })
+  -- run dos2unix scripts
+  map("n", "<leader>dd", function()
+    require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "clear\n" } })
+    require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "unix2dos '${file}'\n" } })
+  end, { desc = "unix2dos" })
+  map("n", "<leader>du", function()
+    require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "clear\n" } })
+    require("vscode").call("workbench.action.terminal.sendSequence", { args = { text = "dos2unix '${file}'\n" } })
+  end, { desc = "dos2unix" })
 end
