@@ -1,6 +1,6 @@
 return {
   "keaising/im-select.nvim",
-  vscode = true,
+  vscode = false,
   config = function()
     require("im_select").setup({
       -- Restore the default input method state when the following events are triggered
